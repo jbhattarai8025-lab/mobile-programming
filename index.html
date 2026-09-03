@@ -3,25 +3,622 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Programming</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
-        }
-    </style>
+
+    <title>ParkNepal - Smart Parking Made Easy</title>
+
+    <meta name="description"
+          content="Find, book and manage parking spaces easily with ParkNepal. Smart parking for Nepal.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 </head>
+
 <body>
-    <h2>Welcome to Mobile Programming</h2>
-    <p>This is a simple HTML page for mobile programming.</p>
-    </body>div
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+        <div class="container nav-content">
+
+            <a href="#" class="logo">
+                <span class="logo-icon">P</span>
+                <span>Park<span class="logo-green">Nepal</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <a href="#download" class="nav-button">
+                Get Started
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <div class="badge">
+                        🚗 Smart Parking for Nepal
+                    </div>
+
+                    <h1>
+                        Parking Made
+                        <span>Simple.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Find available parking spaces, check prices, and reserve
+                        your spot before you arrive. Park smarter and save time
+                        with ParkNepal.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#download" class="primary-button">
+                            Find Parking
+                            <span>→</span>
+                        </a>
+
+                        <a href="#how-it-works" class="secondary-button">
+                            How It Works
+                        </a>
+
+                    </div>
+
+                    <div class="hero-stats">
+
+                        <div class="stat">
+                            <strong>500+</strong>
+                            <span>Parking Spaces</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>10+</strong>
+                            <span>Locations</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>24/7</strong>
+                            <span>Availability</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Hero Parking Card -->
+
+                <div class="hero-visual">
+
+                    <div class="map-card">
+
+                        <div class="map-top">
+                            <div>
+                                <small>Parking near you</small>
+                                <h3>Kathmandu</h3>
+                            </div>
+
+                            <div class="location-icon">
+                                📍
+                            </div>
+                        </div>
+
+                        <div class="map-area">
+
+                            <div class="road road-one"></div>
+                            <div class="road road-two"></div>
+                            <div class="road road-three"></div>
+
+                            <div class="parking-marker marker-one">
+                                P
+                            </div>
+
+                            <div class="parking-marker marker-two">
+                                P
+                            </div>
+
+                            <div class="parking-marker marker-three">
+                                P
+                            </div>
+
+                            <div class="user-location">
+                                <span></span>
+                            </div>
+
+                        </div>
+
+                        <div class="parking-preview">
+
+                            <div class="parking-info">
+                                <div class="parking-icon">
+                                    🚗
+                                </div>
+
+                                <div>
+                                    <h4>City Center Parking</h4>
+                                    <p>350m away · Open now</p>
+                                </div>
+                            </div>
+
+                            <div class="parking-price">
+                                <strong>Rs. 50</strong>
+                                <span>/ hour</span>
+                            </div>
+
+                        </div>
+
+                        <button class="book-button">
+                            Reserve Spot
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FEATURES ================= -->
+
+        <section class="features section" id="features">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">FEATURES</span>
+
+                    <h2>
+                        Everything you need for
+                        <span>stress-free parking.</span>
+                    </h2>
+
+                    <p>
+                        ParkNepal connects drivers with available parking spaces
+                        and gives parking owners an easier way to manage their
+                        business.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-grid">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon blue">
+                            📍
+                        </div>
+
+                        <h3>Find Nearby Parking</h3>
+
+                        <p>
+                            Discover available parking spaces around your current
+                            location without driving around searching.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon green">
+                            📅
+                        </div>
+
+                        <h3>Book in Advance</h3>
+
+                        <p>
+                            Reserve your parking space before reaching your
+                            destination and avoid last-minute searching.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon orange">
+                            💰
+                        </div>
+
+                        <h3>Check Prices</h3>
+
+                        <p>
+                            Compare parking prices and choose an option that fits
+                            your budget.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon purple">
+                            📱
+                        </div>
+
+                        <h3>Digital Confirmation</h3>
+
+                        <p>
+                            Get instant booking confirmation and keep your parking
+                            information in one place.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon red">
+                            📊
+                        </div>
+
+                        <h3>Booking History</h3>
+
+                        <p>
+                            Easily access your previous bookings and parking
+                            records whenever you need them.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon teal">
+                            🏢
+                        </div>
+
+                        <h3>Owner Management</h3>
+
+                        <p>
+                            Parking owners can manage spaces, bookings, prices,
+                            and customer records digitally.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section class="how-section section" id="how-it-works">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">HOW IT WORKS</span>
+
+                    <h2>
+                        Park in
+                        <span>3 simple steps.</span>
+                    </h2>
+
+                    <p>
+                        Finding and reserving parking has never been easier.
+                    </p>
+
+                </div>
+
+
+                <div class="steps">
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            01
+                        </div>
+
+                        <div class="step-icon">
+                            🔎
+                        </div>
+
+                        <h3>Search</h3>
+
+                        <p>
+                            Search for available parking spaces near your
+                            destination.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-line"></div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            02
+                        </div>
+
+                        <div class="step-icon">
+                            📅
+                        </div>
+
+                        <h3>Reserve</h3>
+
+                        <p>
+                            Select your preferred parking space and reserve it
+                            in advance.
+                        </p>
+
+                    </div>
+
+
+                    <div class="step-line"></div>
+
+
+                    <div class="step">
+
+                        <div class="step-number">
+                            03
+                        </div>
+
+                        <div class="step-icon">
+                            🚗
+                        </div>
+
+                        <h3>Park</h3>
+
+                        <p>
+                            Arrive at your location and park without the stress
+                            of searching.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BENEFITS ================= -->
+
+        <section class="benefits section" id="benefits">
+
+            <div class="container benefits-content">
+
+                <div class="benefits-visual">
+
+                    <div class="phone">
+
+                        <div class="phone-screen">
+
+                            <div class="phone-header">
+                                <span>Good Morning 👋</span>
+                                <div class="profile">JB</div>
+                            </div>
+
+                            <h3>Find Parking</h3>
+
+                            <div class="search-box">
+                                🔎
+                                <span>Search location...</span>
+                            </div>
+
+                            <div class="mini-map">
+                                <div class="mini-marker m1">P</div>
+                                <div class="mini-marker m2">P</div>
+                                <div class="mini-marker m3">P</div>
+                            </div>
+
+                            <div class="available-card">
+
+                                <div class="available-icon">
+                                    🚗
+                                </div>
+
+                                <div>
+                                    <strong>Available Spaces</strong>
+                                    <small>Near your location</small>
+                                </div>
+
+                                <b>12</b>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="benefits-text">
+
+                    <span class="section-label">
+                        WHY PARKNEPAL?
+                    </span>
+
+                    <h2>
+                        Spend less time
+                        <span>looking for parking.</span>
+                    </h2>
+
+                    <p>
+                        Parking should not be stressful. ParkNepal helps drivers
+                        find and reserve parking spaces quickly while helping
+                        parking owners manage their facilities more efficiently.
+                    </p>
+
+                    <ul class="benefit-list">
+
+                        <li>
+                            <span>✓</span>
+                            Reduce time spent searching for parking
+                        </li>
+
+                        <li>
+                            <span>✓</span>
+                            Reduce unnecessary fuel consumption
+                        </li>
+
+                        <li>
+                            <span>✓</span>
+                            Reduce traffic caused by parking searches
+                        </li>
+
+                        <li>
+                            <span>✓</span>
+                            Manage parking spaces digitally
+                        </li>
+
+                        <li>
+                            <span>✓</span>
+                            Make parking more convenient for everyone
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta" id="download">
+
+            <div class="container cta-content">
+
+                <div>
+
+                    <span class="section-label light">
+                        PARK SMARTER
+                    </span>
+
+                    <h2>
+                        Your parking spot
+                        <br>
+                        is just a few taps away.
+                    </h2>
+
+                    <p>
+                        Stop wasting time searching for parking.
+                        Start parking smarter with ParkNepal.
+                    </p>
+
+                </div>
+
+                <div class="cta-buttons">
+
+                    <a href="#" class="cta-button">
+                        🚗 Get Started
+                    </a>
+
+                    <a href="#" class="cta-outline">
+                        Download App
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact">
+
+        <div class="container footer-content">
+
+            <div class="footer-brand">
+
+                <a href="#" class="logo">
+                    <span class="logo-icon">P</span>
+                    <span>Park<span class="logo-green">Nepal</span></span>
+                </a>
+
+                <p>
+                    Smart parking solutions for a smarter Nepal.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div>
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#download">Get Started</a>
+                </div>
+
+                <div>
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+
+                <div>
+                    <h4>Connect</h4>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    © 2026 ParkNepal. All rights reserved.
+                </p>
+
+                <p>
+                    Made for Nepal 🇳🇵
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
 </body>
 </html>
