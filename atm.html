@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f4f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .atm-container {
+            width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #222;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .screen {
+            background: #111;
+            color: #00ff88;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 6px 0;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .danger {
+            background: #dc2626;
+        }
+
+        .danger:hover {
+            background: #b91c1c;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .balance {
+            font-size: 25px;
+            font-weight: bold;
+            color: #16a34a;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 10px;
+            min-height: 25px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="atm-container">
+
+        <h1>🏦 ATM System</h1>
+
+        <!-- PIN Section -->
+        <div id="loginSection">
+
+            <h2>Enter PIN</h2>
+
+            <input
+                type="password"
+                id="pinInput"
+                placeholder="Enter your 4-digit PIN"
+                maxlength="4"
+            >
+
+            <button onclick="login()">Login</button>
+
+            <p id="loginMessage" class="message"></p>
+
+        </div>
+
+
+        <!-- ATM Section -->
+        <div id="atmSection" class="hidden">
+
+            <div class="screen">
+                <span id="screenMessage">
+                    Welcome to the ATM
+                </span>
+            </div>
+
+            <div class="balance">
+                Rs. <span id="balance">10000</span>
+            </div>
+
+            <button onclick="checkBalance()">
+                Check Balance
+            </button>
+
+            <button onclick="showWithdraw()">
+                Withdraw Money
+            </button>
+
+            <button onclick="showDeposit()">
+                Deposit Money
+            </button>
+
+            <button class="danger" onclick="logout()">
+                Logout
+            </button>
+
+
+            <!-- Withdraw Section -->
+            <div id="withdrawSection" class="hidden">
+
+                <h2>Withdraw Money</h2>
+
+                <input
+                    type="number"
+                    id="withdrawAmount"
+                    placeholder="Enter amount"
+                >
+
+                <button onclick="withdraw()">
+                    Confirm Withdrawal
+                </button>
+
+            </div>
+
+
+            <!-- Deposit Section -->
+            <div id="depositSection" class="hidden">
+
+                <h2>Deposit Money</h2>
+
+                <input
+                    type="number"
+                    id="depositAmount"
+                    placeholder="Enter amount"
+                >
+
+                <button onclick="deposit()">
+                    Confirm Deposit
+                </button>
+
+            </div>
+
+            <p id="transactionMessage" class="message"></p>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
