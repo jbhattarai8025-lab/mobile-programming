@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>David Basnet - jQuery Profile Card</title>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #0a0a0a;
+            color: white;
+            padding: 30px;
+            transition: background-color 0.5s;
+        }
+
+        h1, h3 {
+            color: #d4af37;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px #8b0000;
+        }
+
+        #profileCard {
+            width: 300px;
+            max-width: 85%;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 15px;
+            background-color: #151515;
+            border: 2px solid #d4af37;
+            box-shadow: 0 5px 25px #8b0000;
+            transition: background-color 0.5s;
+        }
+
+        #profilePhoto {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 75%;
+            border: 4px solid #d4af37;
+            box-shadow: 0 0 15px #8b0000;
+        }
+
+        h2 {
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        #nicknameInput {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            background: #111;
+            color: white;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            background-color: #111;
+            color: white;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #8b0000;
+            transform: scale(1.05);
+        }
+
+        .linkedin {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 8px;
+            background: #8b0000;
+            color: white;
+            text-decoration: none;
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+        }
+
+        .linkedin:hover {
+            background-color: #b30000;
+        }
+
+        #qrCode {
+            width: 120px;
+            height: 120px;
+            margin: 10px;
+            border: 4px solid white;
+            border-radius: 5px;
+        }
+
+        #qrSection {
+            display: none;
+        }
+
+        #output {
+            margin: 20px auto;
+            padding: 15px;
+            max-width: 500px;
+            min-height: 30px;
+            background-color: #222;
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            overflow-wrap: anywhere;
+            color: white;
+        }
+
+        .highlighted {
+            border: 4px solid orange !important;
+        }
+
+        .dark-mode {
+            background-color: #222 !important;
+            color: white;
+        }
+
+        .rounded {
+            border-radius: 10% !important;
+        }
+
+        .shadow {
+            box-shadow: 0 0 25px #d4af37 !important;
+        }
+
+        .red-background {
+            background-color: #8b0000 !important;
+        }
+
+        body.qr-open {
+            background-color: #1a0000;
+        }
+
+        #skillsList {
+            display: block;
+            text-align: left;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .button-section {
+            margin: 25px auto;
+            max-width: 800px;
+            padding: 15px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            background-color: #111;
+        }
+
+        @media (max-width: 400px) {
+            #profileCard {
+                width: 80%;
+                padding: 20px;
+            }
+
+            button {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>MY PROFILE</h1>
+
+    <!-- PROFILE CARD -->
+    <div id="profileCard">
+
+        <img id="profilePhoto"
+             src="Profiledb.jpg"
+             alt="David Basnet">
+
+        <h2 id="studentName">David Basnet</h2>
+
+        <div id="studentBio">
+            <p><strong>Address:</strong><br>
+                Kathmandu, Nepal
+            </p>
+
+            <p><strong>Program:</strong><br>
+                BSc Information Technology
+            </p>
+
+            <p><strong>Field:</strong><br>
+                Information Technology
+            </p>
+
+            <p>
+                I am an IT student interested in programming,
+                web development, databases, and technology.
+            </p>
+        </div>
+
+        <!-- LINKEDIN -->
+        <a class="linkedin"
+           href="https://www.linkedin.com/"
+           target="_blank"
+           rel="noopener noreferrer">
+            Visit My LinkedIn
+        </a>
+
+        <br>
+
+        <!-- NICKNAME INPUT -->
+        <input type="text"
+               id="nicknameInput"
+               placeholder="Enter your nickname">
+
+        <!-- SKILLS -->
+        <h3>My Skills</h3>
+
+        <ul id="skillsList">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>jQuery</li>
+            <li>SQL</li>
+            <li>Python</li>
+        </ul>
+
+        <!-- QR CODE -->
+        <button id="showQR">Show QR</button>
+
+        <div id="qrSection">
+
+            <img id="qrCode"
+                 src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.linkedin.com%2F"
+                 alt="LinkedIn QR Code">
+
+            <p>Scan to visit LinkedIn</p>
+
+            <button id="closeQR">Close QR</button>
+
+        </div>
+
+    </div>
+
+    <!-- GET & SET -->
+    <div class="button-section">
+        <h3>GET & SET</h3>
+
+        <button id="showName">Show Name</button>
+        <button id="changeName">Change Name</button>
+        <button id="showBio">Show Bio</button>
+        <button id="getInput">Get Input</button>
+        <button id="setInput">Set Input</button>
+    </div>
+
+    <!-- CSS CLASSES -->
+    <div class="button-section">
+        <h3>CSS Classes</h3>
+
+        <button id="highlightCard">Highlight Card</button>
+        <button id="removeHighlight">Remove Highlight</button>
+        <button id="toggleDark">Toggle Dark Mode</button>
+        <button id="toggleRounded">Toggle Rounded Photo</button>
+        <button id="toggleShadow">Toggle Shadow</button>
+    </div>
+
+    <!-- CSS METHOD -->
+    <div class="button-section">
+        <h3>CSS Method</h3>
+
+        <button id="redBackground">Red Background</button>
+        <button id="resetBackground">Reset Background</button>
+    </div>
+
+    <!-- HIDE & SHOW -->
+    <div class="button-section">
+        <h3>Hide & Show</h3>
+
+        <button id="hidePhoto">Hide Photo</button>
+        <button id="showPhoto">Show Photo</button>
+        <button id="toggleBio">Toggle Bio</button>
+    </div>
+
+    <!-- FADE -->
+    <div class="button-section">
+        <h3>Fade</h3>
+
+        <button id="fadeOut">Fade Out Card</button>
+        <button id="fadeIn">Fade In Card</button>
+        <button id="fade50">Fade to 50%</button>
+    </div>
+
+    <!-- SLIDE -->
+    <div class="button-section">
+        <h3>Slide</h3>
+
+        <button id="slideUp">Slide Up Skills</button>
+        <button id="slideDown">Slide Down Skills</button>
+        <button id="slideToggle">Slide Toggle Skills</button>
+    </div>
+
+    <!-- ANIMATE -->
+    <div class="button-section">
+        <h3>Animate</h3>
+
+        <button id="animateCard">Animate Card</button>
+        <button id="resetCard">Reset Card Position</button>
+    </div>
+
+    <!-- OUTPUT -->
+    <h3>OUTPUT</h3>
+    <div id="output">Output will appear here...</div>
+
+    <!-- JQUERY CODE -->
+    <script>
+        $(document).ready(function () {
+
+            // GET & SET
+
+            $("#showName").click(function () {
+                let name = $("#studentName").text();
+                $("#output").text(name);
+            });
+
+            $("#changeName").click(function () {
+                $("#studentName").text("David Basnet");
+                $("#output").text("Name set to David Basnet");
+            });
+
+            $("#showBio").click(function () {
+                let bio = $("#studentBio").text();
+                $("#output").text(bio);
+            });
+
+            $("#getInput").click(function () {
+                let nickname = $("#nicknameInput").val();
+                $("#output").text(nickname || "Please enter a nickname.");
+            });
+
+            $("#setInput").click(function () {
+                $("#nicknameInput").val("David B.");
+            });
+
+
+            // CSS CLASSES
+
+            $("#highlightCard").click(function () {
+                $("#profileCard").addClass("highlighted");
+            });
+
+            $("#removeHighlight").click(function () {
+                $("#profileCard").removeClass("highlighted");
+            });
+
+            $("#toggleDark").click(function () {
+                $("#profileCard").toggleClass("dark-mode");
+            });
+
+            $("#toggleRounded").click(function () {
+                $("#profilePhoto").toggleClass("rounded");
+            });
+
+            $("#toggleShadow").click(function () {
+                $("#profileCard").toggleClass("shadow");
+            });
+
+
+            // CSS METHOD
+
+            $("#redBackground").click(function () {
+                $("#profileCard").css("background-color", "#8b0000");
+            });
+
+            $("#resetBackground").click(function () {
+                $("#profileCard").css("background-color", "#151515");
+            });
+
+
+            // HIDE & SHOW
+
+            $("#hidePhoto").click(function () {
+                $("#profilePhoto").hide("slow");
+            });
+
+            $("#showPhoto").click(function () {
+                $("#profilePhoto").show("slow");
+            });
+
+            $("#toggleBio").click(function () {
+                $("#studentBio").toggle();
+            });
+
+
+            // FADE
+
+            $("#fadeOut").click(function () {
+                $("#profileCard").fadeOut();
+            });
+
+            $("#fadeIn").click(function () {
+                $("#profileCard").fadeIn();
+            });
+
+            $("#fade50").click(function () {
+                $("#profileCard").fadeTo("slow", 0.5);
+            });
+
+
+            // SLIDE
+
+            $("#slideUp").click(function () {
+                $("#skillsList").slideUp();
+            });
+
+            $("#slideDown").click(function () {
+                $("#skillsList").slideDown();
+            });
+
+            $("#slideToggle").click(function () {
+                $("#skillsList").slideToggle();
+            });
+
+
+            // ANIMATE
+
+            $("#animateCard").click(function () {
+                $("#profileCard")
+                    .stop(true, true)
+                    .animate({
+                        marginLeft: "200px",
+                        opacity: 0.7
+                    }, 1000)
+                    .animate({
+                        marginLeft: "auto",
+                        opacity: 1
+                    }, 1000);
+            });
+
+            $("#resetCard").click(function () {
+                $("#profileCard").stop(true, true).css({
+                    "margin-left": "auto",
+                    "margin-right": "auto",
+                    "opacity": "1"
+                });
+            });
+
+
+            // SHOW QR CODE
+
+            $("#showQR").click(function () {
+                $("#qrSection").stop(true, true).slideDown(500);
+
+                $("#profileCard").css(
+                    "background-color", "#2b0000"
+                );
+
+                $("body").addClass("qr-open");
+            });
+
+
+            // CLOSE QR CODE
+
+            $("#closeQR").click(function () {
+                $("#qrSection").stop(true, true).slideUp(500);
+
+                $("#profileCard").css(
+                    "background-color", "#151515"
+                );
+
+                $("body").removeClass("qr-open");
+            });
+
+        });
+    </script>
+
+</body>
+</html>

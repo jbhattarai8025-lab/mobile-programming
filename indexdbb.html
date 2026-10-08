@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>David Basnet - Bike Washing Center</title>
+
+    <style>
+
+        /* =========================
+           BASIC SETTINGS
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+        }
+
+
+        /* =========================
+           NAVIGATION BAR
+        ========================== */
+
+        header {
+            background: #080808;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .logo span {
+            color: #e00000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .hero {
+            min-height: 650px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.72),
+                    rgba(0,0,0,0.72)
+                ),
+                url("https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 30px;
+        }
+
+        .hero-content h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: #d4af37;
+        }
+
+        .hero-content h2 {
+            color: #e00000;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            margin: 5px;
+
+            background: #d4af37;
+            color: #111;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #e00000;
+            color: white;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #d4af37;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================== */
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #1b1b1b;
+            padding: 35px 25px;
+            text-align: center;
+
+            border-radius: 10px;
+            border: 1px solid #333;
+
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212,175,55,0.2);
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 23px;
+        }
+
+        .service-card p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           PRICING
+        ========================== */
+
+        .pricing {
+            background: #080808;
+        }
+
+        .price-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .price-card {
+            background: #1a1a1a;
+            text-align: center;
+            padding: 35px;
+
+            border-radius: 10px;
+            border: 2px solid #333;
+        }
+
+        .price-card:hover {
+            border-color: #e00000;
+        }
+
+        .price-card h3 {
+            color: #d4af37;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            color: #e00000;
+            font-size: 38px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .price-card p {
+            color: #ddd;
+            line-height: 2;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 10px;
+            border: 3px solid #d4af37;
+        }
+
+        .about-text h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about-text h2 span {
+            color: #d4af37;
+        }
+
+        .about-text p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           BOOKING FORM
+        ========================== */
+
+        .booking {
+            background: #151515;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: auto;
+
+            background: #222;
+            padding: 35px;
+
+            border-radius: 10px;
+            border: 1px solid #444;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+
+            background: #111;
+            color: white;
+
+            border: 1px solid #555;
+            border-radius: 5px;
+
+            font-size: 16px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+
+            background: #e00000;
+            color: white;
+
+            border: none;
+            border-radius: 5px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #d4af37;
+            color: #111;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact {
+            background: #d4af37;
+            color: #111;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+
+        .contact p {
+            margin: 12px;
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 25px;
+            color: #aaa;
+        }
+
+        footer strong {
+            color: #d4af37;
+        }
+
+
+        /* =========================
+           MOBILE DESIGN
+        ========================== */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 15px;
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+                font-size: 14px;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content h2 {
+                font-size: 22px;
+            }
+
+            .services,
+            .price-container,
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            DAVID <span>BIKE WASH</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#prices">Prices</a>
+            <a href="#about">About</a>
+            <a href="#booking">Booking</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h2>DAVID BASNET PRESENTS</h2>
+
+            <h1>
+                PREMIUM <span>BIKE WASH</span>
+            </h1>
+
+            <p>
+                Professional Motorcycle Cleaning Center
+            </p>
+
+            <p>
+                📍 Kathmandu, Nepal
+            </p>
+
+            <a href="#booking" class="btn">
+                BOOK NOW
+            </a>
+
+            <a href="#services" class="btn">
+                OUR SERVICES
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section id="services">
+
+        <h2 class="section-title">
+            OUR <span>SERVICES</span>
+        </h2>
+
+        <div class="services">
+
+
+            <div class="service-card">
+
+                <div class="icon">💦</div>
+
+                <h3>Basic Bike Wash</h3>
+
+                <p>
+                    Complete exterior washing with
+                    water, shampoo and professional drying.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="icon">🫧</div>
+
+                <h3>Foam Wash</h3>
+
+                <p>
+                    Premium foam cleaning to remove
+                    dust, mud and road dirt.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="icon">⛓️</div>
+
+                <h3>Chain Cleaning</h3>
+
+                <p>
+                    Professional chain cleaning and
+                    lubrication for smooth performance.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="icon">✨</div>
+
+                <h3>Bike Polishing</h3>
+
+                <p>
+                    Professional polishing to restore
+                    your motorcycle's shine.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="icon">🧽</div>
+
+                <h3>Deep Cleaning</h3>
+
+                <p>
+                    Detailed cleaning of difficult-to-reach
+                    areas of your motorcycle.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="icon">🏆</div>
+
+                <h3>Full Detailing</h3>
+
+                <p>
+                    Complete cleaning, polishing and
+                    detailing for your motorcycle.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRICES
+    ========================== -->
+
+    <section class="pricing" id="prices">
+
+        <h2 class="section-title">
+            WASH <span>PACKAGES</span>
+        </h2>
+
+        <div class="price-container">
+
+
+            <div class="price-card">
+
+                <h3>BASIC WASH</h3>
+
+                <div class="price">
+                    Rs. 150
+                </div>
+
+                <p>
+                    ✔ Water Wash<br>
+                    ✔ Shampoo<br>
+                    ✔ Basic Cleaning<br>
+                    ✔ Drying
+                </p>
+
+            </div>
+
+
+            <div class="price-card">
+
+                <h3>PREMIUM WASH</h3>
+
+                <div class="price">
+                    Rs. 300
+                </div>
+
+                <p>
+                    ✔ Foam Wash<br>
+                    ✔ Chain Cleaning<br>
+                    ✔ Deep Cleaning<br>
+                    ✔ Drying<br>
+                    ✔ Polish
+                </p>
+
+            </div>
+
+
+            <div class="price-card">
+
+                <h3>FULL DETAILING</h3>
+
+                <div class="price">
+                    Rs. 600
+                </div>
+
+                <p>
+                    ✔ Foam Wash<br>
+                    ✔ Deep Cleaning<br>
+                    ✔ Chain Service<br>
+                    ✔ Full Polish<br>
+                    ✔ Complete Detailing
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT DAVID
+    ========================== -->
+
+    <section id="about">
+
+        <div class="about">
+
+            <div>
+
+                <img
+                    src="https://images.unsplash.com/photo-1558980664-10ea2e1f6b7a?auto=format&fit=crop&w=900&q=80"
+                    alt="David Bike Wash Center"
+                >
+
+            </div>
+
+
+            <div class="about-text">
+
+                <h2>
+                    About <span>David Bike Wash</span>
+                </h2>
+
+                <p>
+                    Welcome to David Basnet's Bike Washing Center,
+                    a professional motorcycle cleaning service
+                    located in Kathmandu, Nepal.
+                </p>
+
+                <p>
+                    We provide affordable and reliable washing
+                    services for motorcycles of all types.
+                </p>
+
+                <p>
+                    Our goal is to keep every bike clean,
+                    shiny and ready for the road.
+                </p>
+
+                <p>
+                    <strong>Owner:</strong> David Basnet
+                </p>
+
+                <a href="#booking" class="btn">
+                    BOOK YOUR BIKE
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         BOOKING
+    ========================== -->
+
+    <section class="booking" id="booking">
+
+        <h2 class="section-title">
+            BOOK YOUR <span>BIKE WASH</span>
+        </h2>
+
+
+        <div class="form-container">
+
+            <form onsubmit="bookBike(event)">
+
+
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="98XXXXXXXX"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Bike Model</label>
+
+                    <input
+                        type="text"
+                        id="bikeModel"
+                        placeholder="Example: Pulsar 220"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Select Service</label>
+
+                    <select id="service" required>
+
+                        <option value="">
+                            Select a service
+                        </option>
+
+                        <option>
+                            Basic Wash - Rs. 150
+                        </option>
+
+                        <option>
+                            Premium Wash - Rs. 300
+                        </option>
+
+                        <option>
+                            Full Detailing - Rs. 600
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Booking Date</label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Additional Message</label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Write your request..."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    CONFIRM BOOKING
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact" id="contact">
+
+        <h2>CONTACT DAVID BIKE WASH</h2>
+
+        <p>👤 Owner: David Basnet</p>
+
+        <p>📍 Kathmandu, Bagmati Province, Nepal</p>
+
+        <p>📞 +977-98XXXXXXXX</p>
+
+        <p>📧 davidbikewash@gmail.com</p>
+
+        <p>🕒 Open Daily: 7:00 AM - 7:00 PM</p>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026
+            <strong>David Basnet Bike Washing Center</strong>
+            | Kathmandu, Nepal
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function bookBike(event) {
+
+            event.preventDefault();
+
+            let name =
+                document.getElementById("customerName").value;
+
+            let bike =
+                document.getElementById("bikeModel").value;
+
+            let service =
+                document.getElementById("service").value;
+
+            let date =
+                document.getElementById("date").value;
+
+
+            alert(
+                "Thank you, " + name + "!\n\n" +
+
+                "Your booking has been received.\n\n" +
+
+                "Bike: " + bike + "\n" +
+
+                "Service: " + service + "\n" +
+
+                "Date: " + date + "\n\n" +
+
+                "David Bike Wash Center\n" +
+                "Kathmandu, Nepal"
+            );
+
+
+            document.querySelector("form").reset();
+
+        }
+
+    </script>
+
+
+</body>
+</html>
